@@ -25,11 +25,13 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
     $scope.isCollapsed = false;
 
     $rootScope.$on('loggedin', function() {
-
+      //global authenticated variable needs to be updated first
+      $scope.global.authenticated = true;
+      
       queryMenu('main', defaultMainMenu);
 
       $scope.global = {
-        authenticated: !! $rootScope.user,
+        //authenticated: !! $rootScope.user,
         user: $rootScope.user
       };
     });
